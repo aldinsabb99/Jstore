@@ -27,4 +27,9 @@ public class DatabaseItem
         // put your code here
         
     }
+    
+    public void printData()
+    {
+        
+    }
 }
