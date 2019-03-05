@@ -9,27 +9,30 @@ public class DatabaseItem
 {
     // instance variables - replace the example below with your own
     private String[] listItem;
+    private Item item;
 
-    public void addItem()
+    public boolean addItem(Item item)
     {
         // initialise instance variables
-       
+        return false;
     }
 
-    public void removeItem()
+    public boolean removeItem(Item item)
     {
         // put your code here
-        
+        return false;
     }
     
-    public void getItemDatabase()
+    public Item getItem()
     {
         // put your code here
-        
+        return item;
     }
     
-    public void printData()
+    public String[] getItemDatabase()
     {
-        
+        // put your code here
+        return listItem;
     }
+   
 }
