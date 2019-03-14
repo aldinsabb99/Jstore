@@ -12,6 +12,8 @@ public class Invoice
     private Item item;
     private String date;
     private int totalPrice;
+    private int totalItem;
+    private InvoiceStatus status;
 
     //Konstruktor dari kelas Invoice
     public Invoice(int id, Item item, String date, int totalPrice)
@@ -66,6 +68,18 @@ public class Invoice
         return totalPrice;
     }
     
+    public int getTotalItem()
+    {
+        // put your code here
+        return totalItem;
+    }
+    
+    public InvoiceStatus getInvoiceStatus()
+    {
+        // put your code here
+        return status;
+    }
+    
     //Mengubah id Item
     /**
      * Method setId()
@@ -110,8 +124,25 @@ public class Invoice
         this.totalPrice=totalPrice;
     }
     
+    public void setTotalItem(int totalItem)
+    {
+        // put your code here
+        this.totalItem=totalItem;
+    }
+    
+    public void setInvoiceStatus(InvoiceStatus status)
+    {
+        // put your code here
+        this.status=status;
+    }
+    
     public void printData()
     {
-        System.out.println(totalPrice);
+        System.out.println("===============INVOICE===============");
+        System.out.println("ID          : " + id);
+        System.out.println("Date        : " + date);
+        System.out.println("Total Item  : " + totalItem);
+        System.out.println("Total Price : " + totalPrice);
+        System.out.println("Status      : " + status);
     }
 }

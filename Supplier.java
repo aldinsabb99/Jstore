@@ -132,6 +132,11 @@ public class Supplier
      */
     public void printData()
     {
-        System.out.println(name); 
+         System.out.println("===============SUPPLIER===============");
+         System.out.println("ID             : " + id);
+         System.out.println("Name           : " + name);
+         System.out.println("Email          : " + email);
+         System.out.println("Phone Number   : " + phoneNumber);
+         System.out.println("Location       : " + location.getCity());
     }
 }

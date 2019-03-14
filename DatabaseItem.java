@@ -9,7 +9,7 @@ public class DatabaseItem
 {
     // variabel yang digunakan
     private String[] listItem;
-    private Item item;
+    public static Item itemDB;
 
     //Menambah item
     /**
@@ -20,6 +20,7 @@ public class DatabaseItem
     public static boolean addItem(Item item)
     {
         // initialise instance variables
+        itemDB=item;
         return false;
     }
 
@@ -40,10 +41,11 @@ public class DatabaseItem
      * Method getItem()
      * @return item
      */
-    public Item getItem()
+    public static Item getItem()
     {
         // put your code here
-        return item;
+        
+        return itemDB;
     }
     
     //Menampilkan list item
