@@ -1,12 +1,13 @@
 
 /**
- * Write a description of class Supplier here.
+ * Kelas digunakan sebagai informasi supplier dengan lokasinya
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Aldinisa Rahma Sabillah
+ * @version 27/2/2019
  */
 public class Supplier
 {
+    //variabel yang dipakai
     private int id;
     private String name;
     private String email;
@@ -26,62 +27,111 @@ public class Supplier
         this.location=location;  
     }
 
+    //Menampilkan nomor id supplier
+    /**
+     * Method getId()
+     * @return id
+     */
     public int getId()
     {
         // put your code here
         return id;
     }
     
+    //Menampilkan nama supplier
+    /**
+     * Method getName()
+     * @return name
+     */
     public String getName()
     {
         // put your code here
         return name;
     }
     
+    //Menampilkan email supplier
+    /**
+     * Method getEmail()
+     * @return email
+     */
     public String getEmail()
     {
         // put your code here
         return email;
     }
     
+    //Menampilkan nomor telepon supplier
+    /**
+     * Method getPhoneNumber()
+     * @return phoneNumber
+     */
     public String getphoneNumber()
     {
         // put your code here
         return phoneNumber;
     }
     
-    public String getCity()
+    public Location getLocation()
     {
-        // put your code here
-        return city;
+        return location;
     }
     
+    //Mengubah id supplier
+    /**
+     * Method setId()
+     * @param id
+     */
     public void setId(int id)
     {
-        // put your code here
         this.id=id;
     }
     
+    //Mengubah nama supplier
+    /**
+     * Method setName()
+     * @param name
+     */
+    public void setName(String name)
+    {
+        this.name=name;
+    }
+    
+    //Mengubah email supplier
+    /**
+     * Method setEmail()
+     * @param email
+     */
     public void setEmail(String email)
     {
-        // put your code here
         this.email=email;
     }
     
-    public void setPhoneNumber(String PhoneNumber)
+    //Mengubah nomor telepon supplier
+    /**
+     * Method setPhoneNumber()
+     * @param phoneNumber
+     */
+    public void setPhoneNumber(String phoneNumber)
     {
-        // put your code here
         this.phoneNumber=phoneNumber;
     }
     
-    public void setCity(String city)
+    //Mengubah lokasi supplier
+    /**
+     * Method setLocation()
+     * @param location
+     */
+    public void setLocation(Location location)
     {
-        // put your code here
-        this.city=city;
+        this.location=location;
     }
     
+    //Mencetak nama supplier
+    /**
+     * Method printData()
+     */
     public void printData()
     {
-        
+        System.out.println(name); 
     }
 }

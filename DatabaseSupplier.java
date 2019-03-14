@@ -1,18 +1,21 @@
-
 /**
- * Write a description of class DatabaseSupplier here.
+ * Kelas digunakan sebagai informasi database dari supplier
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Aldinisa Rahma Sabillah
+ * @version 3/3/2019
  */
+
 public class DatabaseSupplier
 {
-    // instance variables - replace the example below with your own
+    //variabel yang dipakai
     private String[] listSupplier;
     private Supplier supplier;
 
+    //Menambah supplier
     /**
-     * Constructor for objects of class DatabaseSupplier
+     * Method addSupplier()
+     * @param supplier
+     * @return false
      */
     public boolean addSupplier(Supplier supplier)
     {
@@ -20,17 +23,32 @@ public class DatabaseSupplier
         return false;
     }
     
+    //Menghapus supplier
+    /**
+     * Method remove Supplier()
+     * @param supplier
+     */
     public void removeSupplier(Supplier supplier)
     {
         // initialise instance variables
         this.supplier=supplier;
     }
     
+    //Menampilkan nama supplier
+    /**
+     * Method getSupplier()
+     * @return supplier
+     */
     public Supplier getSupplier()
     {
         return supplier;
     }
     
+    //Menampilkan list supplier
+    /**
+     * Method getListSupplier()
+     * @return listSupplier
+     */
     public String[] geListSupplier()
     {
         return listSupplier;
