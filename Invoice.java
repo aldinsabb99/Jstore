@@ -5,23 +5,26 @@
  * @author Aldinisa Rahma Sabillah
  * @version 27/02/2019
  */
-public class Invoice
+public abstract class Invoice
 {
     //variabel yang digunakan
     private int id;
     private Item item;
     private String date;
-    private int totalPrice;
+    protected int totalPrice;
     private int totalItem;
     private InvoiceStatus status;
+    private InvoiceType type;
 
     //Konstruktor dari kelas Invoice
-    public Invoice(int id, Item item, String date, int totalPrice)
+    public Invoice(int id, Item item, String date, int totalItem, int totalPrice)
     {
         // initialise instance variables
         this.id=id;
         this.date=date;
+        this.totalItem=totalItem;
         this.totalPrice=totalPrice;
+        
     }
 
     //Menampilkan nomor id invoice
@@ -80,6 +83,10 @@ public class Invoice
         return status;
     }
     
+    public InvoiceType getInvoiceType()
+    {
+        return type;
+    }
     //Mengubah id Item
     /**
      * Method setId()
@@ -136,13 +143,5 @@ public class Invoice
         this.status=status;
     }
     
-    public void printData()
-    {
-        System.out.println("===============INVOICE===============");
-        System.out.println("ID          : " + id);
-        System.out.println("Date        : " + date);
-        System.out.println("Total Item  : " + totalItem);
-        System.out.println("Total Price : " + totalPrice);
-        System.out.println("Status      : " + status);
-    }
+    public abstract void printData();
 }
