@@ -24,6 +24,7 @@ public abstract class Invoice
         this.date=date;
         this.totalItem=totalItem;
         this.totalPrice=totalPrice;
+        this.item=item;
         
     }
 

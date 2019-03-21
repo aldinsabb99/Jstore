@@ -42,7 +42,7 @@ public class Buy_Paid extends Invoice
         System.out.println("==========INVOICE==========");
         System.out.println("ID:" + super.getId());
         System.out.println("Date:" + super.getDate());
-        System.out.println("Item :" + getItem());
+        System.out.println("Item :" + super.getItem().getName());
         System.out.println("Total Item:" + super.getTotalItem());
         System.out.println("Total Price:" + super.getTotalPrice());
         System.out.println("Status:" + INVOICE_STATUS);

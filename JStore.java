@@ -22,7 +22,8 @@
         // put your code here
         Location location = new Location("Cirebon", "Jawa Barat", "Khusus");
         Supplier supplier = new Supplier(1, "Aldin", "aldinsabillah9@gmail.com", "085324617200", location);
-        Item item = new Item(1, "Aldinisa Rahma Sabillah", 100, 100000, ItemCategory.Electronics, ItemStatus.New, supplier);
+        Item item = new Item(1, "Laptop", 100, 100000, ItemCategory.Electronics, ItemStatus.New, supplier);
+        
         Transaction transaction = new Transaction();
         DatabaseItem.addItem(item);
         transaction.orderNewItem(item);
