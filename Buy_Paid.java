@@ -15,10 +15,10 @@ public class Buy_Paid extends Invoice
     /**
      * Constructor for objects of class Buy_Paid
      */
-    public Buy_Paid(int id, Item item,String date, int totalItem, int totalPrice)
+    public Buy_Paid(int id, Item item, int totalItem)
     {
         // initialise instance variables
-        super(id,item,date,totalItem,totalPrice);
+        super(id,item,totalItem);
     }
 
     /**
@@ -47,5 +47,11 @@ public class Buy_Paid extends Invoice
         System.out.println("Total Price:" + super.getTotalPrice());
         System.out.println("Status:" + INVOICE_STATUS);
         System.out.println("Type :" + INVOICE_TYPE);
+    }
+    
+    public String toString()
+    {
+        // put your code here
+        return "ID = ";
     }
 }

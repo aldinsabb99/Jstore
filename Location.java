@@ -91,7 +91,7 @@ public class Location
     /**
      * Method printData()
      */
-    public void printData()
+    public String toString()
     {
         System.out.println("===============LOCATION===============");
         System.out.println("Province    : " + province);

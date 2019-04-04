@@ -8,7 +8,7 @@
 public class DatabaseItem
 {
     // variabel yang digunakan
-    private String[] listItem;
+    private Item[] listItem;
     public static Item itemDB;
 
     //Menambah item
@@ -53,7 +53,7 @@ public class DatabaseItem
      * Method getItemDatabase()
      * @return listItem
      */
-    public String[] getItemDatabase()
+    public Item[] getItemDatabase()
     {
         // put your code here
         return listItem;

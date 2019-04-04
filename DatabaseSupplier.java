@@ -8,7 +8,7 @@
 public class DatabaseSupplier
 {
     //variabel yang dipakai
-    private String[] listSupplier;
+    private Supplier[] listSupplier;
     private Supplier supplier;
 
     //Menambah supplier
@@ -49,7 +49,7 @@ public class DatabaseSupplier
      * Method getListSupplier()
      * @return listSupplier
      */
-    public String[] geListSupplier()
+    public Supplier[] geListSupplier()
     {
         return listSupplier;
     }

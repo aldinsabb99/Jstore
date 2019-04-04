@@ -1,4 +1,4 @@
-
+import java.util.Calendar;
 /**
  * Kelas digunakan sebagai informasi Invoice barang dengan itemnya
  *
@@ -10,22 +10,20 @@ public abstract class Invoice
     //variabel yang digunakan
     private int id;
     private Item item;
-    private String date;
-    protected int totalPrice;
+    private Calendar date;
+    private int totalPrice;
     private int totalItem;
     private InvoiceStatus status;
     private InvoiceType type;
 
     //Konstruktor dari kelas Invoice
-    public Invoice(int id, Item item, String date, int totalItem, int totalPrice)
+    public Invoice(int id, Item item, int totalItem)
     {
         // initialise instance variables
         this.id=id;
-        this.date=date;
         this.totalItem=totalItem;
-        this.totalPrice=totalPrice;
         this.item=item;
-        
+        setTotalPrice(item.getPrice()*totalItem);
     }
 
     //Menampilkan nomor id invoice
@@ -55,7 +53,7 @@ public abstract class Invoice
      * Method getDate()
      * @return date
      */
-    public String getDate()
+    public Calendar getDate()
     {
         // put your code here
         return date;
@@ -115,7 +113,7 @@ public abstract class Invoice
      * Method setDate()
      * @param date
      */
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         // put your code here
         this.date=date;
@@ -145,4 +143,7 @@ public abstract class Invoice
     }
     
     public abstract void printData();
+    
+    public abstract String toString();
+    
 }

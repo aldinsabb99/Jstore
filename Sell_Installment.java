@@ -12,14 +12,15 @@ public class Sell_Installment extends Invoice
     private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Installment;
     private int installmentPeriod;
     private int installmentPrice;
+    private Customer customer;
     
     /**
      * Constructor for objects of class Buy_Paid
      */
-    public Sell_Installment(int id, Item item,String date, int totalItem, int totalPrice, int installmentPeriod)
+    public Sell_Installment(int id, Item item, int totalItem, int installmentPeriod, Customer customer)
     {
         // initialise instance variables
-        super(id,item,date,totalItem,totalPrice);
+        super(id,item,totalItem);
     }
 
     /**
@@ -38,6 +39,12 @@ public class Sell_Installment extends Invoice
     {
         // put your code here
         return installmentPrice;
+    }
+    
+    public Customer getCustomer()
+    {
+        // put your code here
+        return customer;
     }
     
     public InvoiceStatus getInvoiceStatus()
@@ -62,6 +69,22 @@ public class Sell_Installment extends Invoice
         this.totalPrice= installmentPrice*installmentPrice;
     }
     
+    public void setCustomer(Customer customer)
+    {
+        // put your code here
+        this.customer=customer;
+    }
+    
+    public void setInvoiceStatus(InvoiceStatus Status)
+    {
+        
+    }
+    
+    public String toString()
+    {
+        // put your code here
+        return "";
+    }
     
     public void printData()
     {
