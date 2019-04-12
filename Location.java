@@ -7,95 +7,90 @@
  */
 public class Location
 {
-    //variabel yang dipakai
     private String province;
     private String description;
     private String city;
 
-    //Konstruktor dari kelas Supplier
+    /**
+     * Constructor for objects of class Location
+     */
     public Location(String city, String province, String description)
     {
-        // initialise instance variables
-        this.city=city;
-        this.province=province;
-        this.description=description;
+        this.city = city;
+        this.province = province;
+        this.description = description;
     }
-    
-    //Menampilkan nama provinsi
+
     /**
-     * Method getProvince()
-     * @return province
+     * Method untuk mengembalikan nama provinsi
+     *
+     * @return    nama provinsi
      */
     public String getProvince()
     {
-        // put your code here
         return province;
     }
     
-    //Menampilkan nama kota
     /**
-     * Method getCity()
-     * @return city
+     * Method untuk mengembalikan nama kota
+     *
+     * @return    nama kota
      */
     public String getCity()
     {
-        // put your code here
         return city;
     }
     
-    //Menampilkan deskripsi lokasi
     /**
-     * Method getDescription()
-     * @return description
+     * Method untuk mengembalikan deskripsi kota
+     *
+     * @return    deskripsi kota
      */
     public String getDescription()
     {
-        // put your code here
         return description;
     }
     
-    //Mengganti nama provinsi
     /**
-     * Method setProvince()
-     * @param province
+     * Method untuk mengubah nama provinsi
+     *
+     * @param  province  nama provinsi
      */
-    public void setProvince(String Province)
+    public void setProvince(String province)
     {
-        // put your code here
-        this.province=province;
+        this.province = province;
     }
     
-    //Mengganti nama kota
     /**
-     * Method setCity()
-     * @param city
+     * Method untuk mengubah nama kota
+     *
+     * @param  city  nama kota
      */
     public void setCity(String city)
     {
-        // put your code here
-        this.city=city;
+        this.city = city;
     }
     
-    //Mengganti deskripsi lokasi
     /**
-     * Method setDescription()
-     * @param description
+     * Method untuk mengubah deskripsi kota
+     *
+     * @param  description  deskripsi kota
      */
     public void setDescription(String description)
     {
-        // put your code here
-        this.description=description;
+        this.description = description;
     }
     
-    //Mencetak nama provinsi
     /**
-     * Method printData()
+     * Method untuk menampilkan nama provinsi
+     *
      */
     public String toString()
     {
-        System.out.println("===============LOCATION===============");
-        System.out.println("Province    : " + province);
-        System.out.println("City        : " + city);
-        System.out.println("Description : " + description);
+        System.out.println("==========LOCATION==========");
+        System.out.println("Province: " + province);
+        System.out.println("City: " + city);
+        System.out.println("Description: " + description);
+        return "";
     }
 }

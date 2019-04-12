@@ -1,90 +1,140 @@
-   
+
 /**
  * Write a description of class Transaction here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
+
+import java.util.*;
+
 public class Transaction
 {
+    private static ArrayList<Integer> listItem = new ArrayList<Integer>();
+    private static Buy_Paid order;
+    private static Sell_Paid sellPaid;
+    private static Sell_Unpaid sellUnpaid;
+    private static Sell_Installment sellInstall;
     
-    public void orderNewItem(Item item)
+    /**
+     * Constructor for objects of class Transaction
+     */
+    public Transaction()
     {
-        // put your code here
-        System.out.println("===================Order New Item===================");
-        Invoice buypaid1 = new Buy_Paid(1234, item, "21 Maret 2019", 99, item.getPrice());
-        if (buypaid1 instanceof Sell_Paid)
+        
+    }
+
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public static void orderNewItem(Item item)
+    {
+        listItem.add(item.getId());
+        order = new Buy_Paid(listItem);
+        DatabaseInvoice.addInvoice(order);
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public static void orderSecondItem(Item item)
+    {
+        listItem = DatabaseInvoice.getInvoice(DatabaseInvoice.getLastInvoiceID()).getItem();
+        listItem.add(item.getId());
+        order.setItem(listItem);
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public static void orderRefurbishedItem(Item item)
+    {
+        listItem = DatabaseInvoice.getInvoice(DatabaseInvoice.getLastInvoiceID()).getItem();
+        listItem.add(item.getId());
+        order.setItem(listItem);
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public static void sellItemPaid(Item item, Customer customer)
+    {
+        listItem.add(item.getId());
+        sellPaid = new Sell_Paid(listItem, customer);
+        DatabaseInvoice.addInvoice(sellPaid);
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public static void sellItemUnpaid(Item item, Customer customer)
+    {
+        listItem.add(item.getId());
+        sellUnpaid = new Sell_Unpaid(listItem, customer);
+        DatabaseInvoice.addInvoice(sellUnpaid);
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public static void sellItemInstallment(Item item, Customer customer, 
+    int installmentPeriod)
+    {
+        listItem.add(item.getId());
+        sellInstall = new Sell_Installment(listItem, installmentPeriod, customer);
+        DatabaseInvoice.addInvoice(sellInstall);
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public static boolean finishTransaction(Invoice invoice)
+    {
+        invoice = DatabaseInvoice.getInvoice(invoice.getId());
+        if(invoice == null)
         {
-            System.out.println("Benar Invoice Type adalah Sell_Paid");
-        
+            return false;
         }
-        else {
-            System.out.println("Sala Invoice Type bukan Sell_Paid");
-        
-        }
-        item.printData();
-        buypaid1.printData();
+        invoice.setIsActive(false);
+        System.out.println("isActive : " + invoice.getIsActive());
+        return true;
     }
     
-    public void orderSecondItem(Item item)
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public static boolean cancelTransaction(Invoice invoice)
     {
-        // put your code here
-        System.out.println("===================Order Second Item===================");
-        Invoice buypaid1 = new Buy_Paid(1234, item, "21 Maret 2019", 99, item.getPrice());
-        if (buypaid1 instanceof Sell_Paid)
+        invoice = DatabaseInvoice.getInvoice(invoice.getId());
+        if(invoice == null)
         {
-            System.out.println("Benar Invoice Type adalah Sell_Paid");
-        
+            return false;
         }
-        else {
-            System.out.println("Sala Invoice Type bukan Sell_Paid");
-        
-        }
-        item.printData();
-        buypaid1.printData();
+        DatabaseInvoice.removeInvoice(invoice.getId());
+        return true;
     }
-    
-    public void orderRefurbishedItem(Item item)
-    {
-        // put your code here
-        System.out.println("===================Order Refurbished Item===================");
-        Invoice buypaid1 = new Buy_Paid(1234, item, "21 Maret 2019", 99, item.getPrice());
-        if (buypaid1 instanceof Sell_Paid)
-        {
-            System.out.println("Benar Invoice Type adalah Sell_Paid");
-        
-        }
-        else {
-            System.out.println("Sala Invoice Type bukan Sell_Paid");
-        
-        }
-        item.printData();
-        buypaid1.printData();
-    }
-    
-    public void sellItemPaid(Item item)
-    {
-        // put your code here
-        Invoice buypaid1 = new Sell_Paid(1234, item, "21 Maret 2019", 99, item.getPrice());
-        item.printData();
-        buypaid1.printData();
-    }
-    
-    public void sellItemUnpaid(Item item)
-    {
-        // put your code here
-        Invoice buypaid1 = new Sell_Unpaid(1234, item, "21 Maret 2019", 99, item.getPrice(), "30 Maret 2019");
-        item.printData();
-        buypaid1.printData();
-    }
-    
-    public void sellItemInstallment(Item item)
-    {
-        // put your code here
-        Invoice buypaid1 = new Sell_Installment(1234, item, "21 Maret 2019", 99, item.getPrice(), 6);
-        item.printData();
-        buypaid1.printData();
-    }
-    
-    
 }

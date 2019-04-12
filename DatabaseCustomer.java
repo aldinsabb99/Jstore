@@ -1,52 +1,103 @@
 
 /**
- * Write a description of class DaatabaseCustomer here.
+ * Write a description of class DatabaseCustomer here.
  *
- * @author Aldinisa Rahma Sabillah
- * @version 4 April 2019
+ * @author (your name)
+ * @version (a version number or a date)
  */
+
+import java.util.*;
+
 public class DatabaseCustomer
 {
     // instance variables - replace the example below with your own
-    private Customer[] listCustomer;
-    private Customer customer;
+    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();
+    private static int LAST_CUSTOMER_ID = 0;
 
     /**
-     * Constructor for objects of class DaatabaseCustomer
+     * Constructor for objects of class DatabaseCustomer
      */
     public DatabaseCustomer()
     {
         // initialise instance variables
-        
     }
 
+    /**
+     * Method untuk mengembalikan list supplier
+     *
+     * @return    list supplier
+     */
+    public static ArrayList<Customer> getCustomerDatabase()
+    {
+        return CUSTOMER_DATABASE;
+    }
+    
+    /**
+     * Method untuk mengembalikan supplier
+     *
+     * @return    objek supplier
+     */
+    public static int getLastCustomerID()
+    {
+        return LAST_CUSTOMER_ID;
+    }
+    
     /**
      * An example of a method - replace this comment with your own
      *
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public boolean addCustomer(Customer customer)
+    public static boolean addCustomer(Customer customer)
     {
-        // put your code here
+        boolean found = false;
+        for(Customer temp : CUSTOMER_DATABASE)
+        {
+            if(temp.getName() == customer.getName() && temp.getEmail() 
+            == customer.getEmail())
+            {
+                return false;
+            }
+        }
+        CUSTOMER_DATABASE.add(customer);
+        LAST_CUSTOMER_ID = customer.getId();
+        return true;
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public static Customer getCustomer(int id)
+    {
+        for(Customer temp : CUSTOMER_DATABASE) 
+        {
+            if(temp.getId() == id) 
+            {
+                return temp;
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public static boolean removeCustomer(int id)
+    {
+        for(Customer temp : CUSTOMER_DATABASE) 
+        {
+            if(temp.getId() == id) 
+            {
+                CUSTOMER_DATABASE.remove(temp);
+                return true;
+            }
+        }
         return false;
-    }
-    
-    public void removeCustomer(Customer customer)
-    {
-        // put your code here
-        this.listCustomer=listCustomer;
-    }
-    
-    public Customer getCustomer()
-    {
-        // put your code here
-        return customer;
-    }
-    
-    public Customer[] getListCustomer()
-    {
-        // put your code here
-        return listCustomer;
     }
 }

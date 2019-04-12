@@ -65,7 +65,7 @@ public class Supplier
      * Method getPhoneNumber()
      * @return phoneNumber
      */
-    public String getphoneNumber()
+    public String getPhoneNumber()
     {
         // put your code here
         return phoneNumber;

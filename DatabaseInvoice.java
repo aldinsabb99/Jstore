@@ -1,24 +1,27 @@
-
+import java.util.*;
 /**
  * Write a description of class DatabaseInvoice here.
  *
- * @author (your name)
+ * @author Aldinisa Rahma Sabillah
  * @version (a version number or a date)
  */
 public class DatabaseInvoice
 {
     // instance variables - replace the example below with your own
-    private Invoice[] listInvoice;
-    private Invoice invoice;
-
-    /**
-     * Constructor for objects of class DatabaseInvoice
-     */
-    public DatabaseInvoice()
+    private static ArrayList<Invoice> INVOICE_DATABASE;
+    private static int LAST_INVOICE_ID;
+    
+    public ArrayList<Invoice> getInvoiceDatabase()
     {
-        // initialise instance variables
+        return INVOICE_DATABASE;
     }
-
+    
+    public static int getLastInvoiceID ()
+    {
+        // put your code here
+        return LAST_INVOICE_ID;
+    }
+    
     /**
      * Method untuk menambahkan supplier kedalam list
      *
@@ -30,22 +33,36 @@ public class DatabaseInvoice
     }
     
     /**
-     * Method untuk menghapus supplier dari list
+     * Method untuk mengembalikan Invoice
      *
+     * @return 
      */
-    public void removeInvoice(Invoice invoice)
+    public static Invoice getInvoice(int id)
     {
-        // put your code here
+        for(Invoice temp : INVOICE_DATABASE) 
+        {
+            if(temp.getId() == id) 
+            {
+                return temp;
+            }
+            
+            
+        }
+        return null;
     }
     
-    /**
-     * Method untuk mengembalikan supplier
-     *
-     * @return    objek supplier
-     */
-    public Invoice getInvoice()
+    public Invoice getActiveOrder(Customer customer)
     {
-        return invoice;
+        for(Invoice temp : INVOICE_DATABASE) 
+        {
+            if((temp.getInvoiceStatus() == InvoiceStatus.Unpaid || temp.getInvoiceStatus() == InvoiceStatus.Installment)  && temp.getIsActive() == true)
+            {
+                return temp;
+            }
+            
+            
+        }
+        return null;
     }
     
     /**
@@ -53,8 +70,36 @@ public class DatabaseInvoice
      *
      * @return    list supplier
      */
-    public Invoice[] getListInvoice()
+    
+    
+    public static boolean removeInvoice(int id)
     {
-        return listInvoice;
+        // put your code here
+        for(Invoice temp : INVOICE_DATABASE) 
+        {
+            if(temp.getId() == id) 
+            {
+                if(temp.getIsActive() == true)
+                {
+                    temp.setIsActive(false);
+                    INVOICE_DATABASE.remove(temp);
+                    return true;
+                }
+                
+            }
+            
+        }
+        return false;
     }
+    
+    /**
+     * Constructor for objects of class DatabaseInvoice
+     */
+    public DatabaseInvoice()
+    {
+        // initialise instance variables
+    }
+
+    
+    
 }
