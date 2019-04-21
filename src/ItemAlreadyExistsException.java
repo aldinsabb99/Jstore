@@ -3,12 +3,12 @@ public class ItemAlreadyExistsException extends Exception{
 
 
     public ItemAlreadyExistsException(Item item_input){
-        super();
+        super("====Item Already Exists====\nItem Name : ");
         this.item_error=item_input;
-
+        getMessage();
     }
 
-    public String getExMessage(){
-        return super.getMessage() + "Customer Name : " + item_error.getName() + " ,Category: " + item_error.getCategory() + " ,Status: " + item_error.getStatus() + " from: " + item_error.getSupplier().getName() + " already exists.";
+    public String getMessage(){
+        return super.getMessage() + item_error.getName() + " ,Category: " + item_error.getCategory() + " ,Status: " + item_error.getStatus() + " from: " + item_error.getSupplier().getName() + " already exists.";
     }
 }

@@ -53,7 +53,7 @@ public class DatabaseCustomer
         boolean found = false;
         for(Customer temp : CUSTOMER_DATABASE)
         {
-            if(temp.getName() == customer.getName() || temp.getEmail()
+            if(temp.getName() == customer.getName() && temp.getEmail()
                     == customer.getEmail())
             {
                 throw new CustomerAlreadyExistsException(customer);

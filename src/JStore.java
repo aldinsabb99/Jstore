@@ -44,13 +44,7 @@ import java.util.*;
         catch (SupplierAlreadyExistsException e){
             System.out.println(e);
         }
-        Supplier sup4 = new Supplier("Dhio", "dhio@ui.ac.id", "08234", lokasi);
-        try {
-            DatabaseSupplier.addSupplier(sup1);
-        }
-        catch (SupplierAlreadyExistsException e){
-            System.out.println(e);
-        }
+
         //for (Supplier supplier : DatabaseSupplier.getSupplierDatabase())
         //{
           //  System.out.println(supplier);
@@ -73,12 +67,8 @@ import java.util.*;
         catch (CustomerAlreadyExistsException e){
             System.out.println(e);
         }
-        try{
-            DatabaseCustomer.addCustomer(new Customer("Aldinisa", "aldinisa@ui.ac.id", "aldinisa", "Aldin145", 1999, 7, 3));
-        }
-        catch (CustomerAlreadyExistsException e){
-            System.out.println(e);
-        }
+
+
         //for (Customer customer : DatabaseCustomer.getCustomerDatabase())
         //{
           //  System.out.println(customer);
@@ -104,12 +94,7 @@ import java.util.*;
         catch (ItemAlreadyExistsException e){
             System.out.println(e);
         }
-        try{
-            DatabaseItem.addItem(new Item("Sofa", ItemStatus.New, 600000, DatabaseSupplier.getSupplier(3),ItemCategory.Furniture));
-        }
-        catch (ItemAlreadyExistsException e){
-            System.out.println(e);
-        }
+
 
         //for (Item item : DatabaseItem.getItemDatabase())
         //{
@@ -136,11 +121,36 @@ import java.util.*;
         catch (InvoiceAlreadyExistsException e){
             System.out.println(e);
         }
-        for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase())
-        {
-            System.out.println(invoice);
+        //for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase())
+        //{
+            //System.out.println(invoice);
+        //}
+        Supplier sup4 = new Supplier("Dhio", "dhio@ui.ac.id", "08234", lokasi);
+        try {
+            DatabaseSupplier.addSupplier(sup4);
         }
-        
+        catch (SupplierAlreadyExistsException e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            DatabaseCustomer.addCustomer(new Customer("Aldinisa", "aldinisa@ui.ac.id", "aldinisa", "Aldin145", 1999, 7, 3));
+        }
+        catch (CustomerAlreadyExistsException e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            DatabaseItem.addItem(new Item("Sofa", ItemStatus.New, 600000, DatabaseSupplier.getSupplier(3),ItemCategory.Furniture));
+        }
+        catch (ItemAlreadyExistsException e){
+            System.out.println(e.getMessage());
+        }
+        /**try{
+            DatabaseInvoice.addInvoice(new Sell_Unpaid(items1, DatabaseCustomer.getCustomer(2)));
+        }
+        catch (InvoiceAlreadyExistsException e){
+
+            System.out.println(e.getMessage());
+        }**/
         //Transaction.finishTransaction(DatabaseInvoice.getInvoice(2));
         //Transaction.finishTransaction(DatabaseInvoice.getInvoice(3));
         

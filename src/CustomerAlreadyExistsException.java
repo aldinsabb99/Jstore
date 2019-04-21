@@ -3,12 +3,12 @@ public class CustomerAlreadyExistsException extends Exception{
 
 
     public CustomerAlreadyExistsException(Customer customer_input){
-        super();
+        super("====Customer Already Exists====\nCustomer Email : ");
         this.customer_error=customer_input;
-
+        getMessage();
     }
 
-    public String getExMessage(){
-        return super.getMessage() + "Customer Email : " + customer_error.getEmail() + " ,or Username:"+ customer_error.getUsername() + " already exists.";
+    public String getMessage(){
+        return super.getMessage() + customer_error.getEmail() + " ,or Username:"+ customer_error.getUsername() + " already exists.";
     }
 }

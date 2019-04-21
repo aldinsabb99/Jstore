@@ -4,6 +4,7 @@ public class CustomerDoesntHaveActiveException extends Exception{
     public CustomerDoesntHaveActiveException(Customer customer_input){
         super("Customer : ");
         this.customer_error=customer_input;
+        getMessage();
     }
 
     public String getExMessage(){
