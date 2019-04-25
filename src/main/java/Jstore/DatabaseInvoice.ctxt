@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=DatabaseInvoice
+comment0.text=\r\n\ Kelas\ ini\ berfungsi\ untuk\ menambahkan\ dan\ menghapus\ supplier\ pada\ list\r\n\ kemudian\ dapat\ mengembalikan\ nilainya\ serta\ menampilkan\ listnya.\r\n\r\n\ @author\ Aldinisa\ RS\r\n\ @version\ 28-Feb-2019\r\n
+comment1.params=
+comment1.target=DatabaseInvoice()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ DatabaseSupplier\r\n
+comment2.params=
+comment2.target=java.util.ArrayList\ getInvoiceDatabase()
+comment3.params=
+comment3.target=int\ getLastInvoiceID()
+comment4.params=invoice
+comment4.target=boolean\ addInvoice(Invoice)
+comment5.params=id
+comment5.target=Invoice\ getInvoice(int)
+comment6.params=customer
+comment6.target=Invoice\ getActiveOrder(Customer)
+comment7.params=id
+comment7.target=boolean\ removeInvoice(int)
+numComments=8
