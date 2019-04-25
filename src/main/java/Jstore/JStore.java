@@ -26,7 +26,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
     public static void main(String[] args)
     {
         SpringApplication.run(JStore.class, args);
-        /**Location lokasi = new Location("Depok", "Jawa Barat", "Universitas Indonesia");
+        Location lokasi = new Location("Depok", "Jawa Barat", "Universitas Indonesia");
         Supplier sup1 = new Supplier("Dhio", "dhio@ui.ac.id", "08234", lokasi);
         try {
             DatabaseSupplier.addSupplier(sup1);
@@ -53,7 +53,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         //{
           //  System.out.println(supplier);
         //}
-        try{
+        /**try{
             DatabaseCustomer.addCustomer(new Customer("Aldinisa", "aldinisa@ui.ac.id", "aldinisa", "Aldin145", 1999, 7, 3));
         }
         catch (CustomerAlreadyExistsException e){
@@ -70,7 +70,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         }
         catch (CustomerAlreadyExistsException e){
             System.out.println(e);
-        }
+        }**/
 
 
         //for (Customer customer : DatabaseCustomer.getCustomerDatabase())
@@ -99,12 +99,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
             System.out.println(e);
         }
 
+        try{
+            DatabaseItem.addItem(new Item("Meja", ItemStatus.New, 200000, DatabaseSupplier.getSupplier(3),ItemCategory.Furniture));
+        }
+        catch (ItemAlreadyExistsException e){
+            System.out.println(e);
+        }
+
 
         //for (Item item : DatabaseItem.getItemDatabase())
         //{
           //      System.out.println(item);
         //}
-        
+        /**
         ArrayList<Integer> items = new ArrayList<>();
         items.add(1);
         items.add(2);
